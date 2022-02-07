@@ -40,6 +40,10 @@ let g:floaterm_keymap_new = '<Leader>ft'
 
 " after searching for matching terms, clear highlight
 nnoremap <esc> :noh <CR>
+:nmap <RIGHT> :q <CR>
+:nmap <DOWN> :w <CR>
+:imap ,. <Esc>
+:imap ., <Esc>
 
 " ------------------------------------------------------------------------------
 " Plugins 
@@ -63,6 +67,7 @@ source ~/.config/nvim/plugins/fugitive.vim
 source ~/.config/nvim/plugins/fzf.vim
 source ~/.config/nvim/plugins/nerdtree.vim
 source ~/.config/nvim/plugins/polyglot.vim
+source ~/.config/nvim/plugins/prettier.vim
 source ~/.config/nvim/plugins/surround.vim
 
 call plug#end()
