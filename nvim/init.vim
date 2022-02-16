@@ -1,6 +1,6 @@
+
 " ------------------------------------------------------------------------------
-" General Settings
-" ------------------------------------------------------------------------------
+" set wrap
 set grepprg=rg\ --vimgrep\ --smart-case\ --follow
 set expandtab
 set shiftwidth=4
@@ -15,7 +15,8 @@ set title
 set ignorecase
 set smartcase
 set wildmode=longest:full,full
-set nowrap
+" set nowrap
+set linebreak
 set list
 set listchars=tab:»\ ,extends:›,precedes:‹,nbsp:·,trail:·
 set scrolloff=8
@@ -45,6 +46,15 @@ nnoremap <esc> :noh <CR>
 :imap ,. <Esc>
 :imap ., <Esc>
 
+:nmap § <Plug>(coc-float-hide)
+
+" Buffers
+nnoremap <leader>b :ls<CR>:b
+nnoremap ,n :bn<CR> 
+nnoremap ,b :bp<CR>
+nnoremap ,h :b#<CR>
+
+
 " ------------------------------------------------------------------------------
 " Plugins 
 " ------------------------------------------------------------------------------
@@ -71,5 +81,6 @@ source ~/.config/nvim/plugins/prettier.vim
 source ~/.config/nvim/plugins/surround.vim
 
 call plug#end()
+
 doautocmd User PlugLoaded
 
