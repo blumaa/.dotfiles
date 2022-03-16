@@ -13,15 +13,16 @@ lualine.setup {
     always_divide_middle = true,
   },
   sections = {
-    lualine_a = {'mode'},
-    lualine_b = {'branch', 'diff', {'diagnostics', sources = { 'nvim_lsp' }}},
-    lualine_c = {
+    lualine_a = {
+      'mode',
       {
         'filename',
-        path = 1,
+        path = 0,
       }
     },
-    lualine_x = { {'fileformat', symbols = { mac = 'e711'}}, {'filetype', colored = true, }},
+    lualine_b = {'branch', 'diff', {'diagnostics', sources = { 'nvim_lsp' }}},
+    lualine_c = {},
+    lualine_x = { 'encoding', 'fileformat', {'filetype', colored = true, icon_only = false, }},
     lualine_y = {'progress'},
     lualine_z = {'location'}
   },

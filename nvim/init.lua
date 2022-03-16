@@ -1,4 +1,5 @@
 require "blumaa.autopairs"
+require "blumaa.bufferline"
 require "blumaa.cmp"
 require "blumaa.colorscheme"
 require "blumaa.comment"
