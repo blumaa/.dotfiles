@@ -47,7 +47,7 @@ return packer.startup(function(use)
   use "windwp/nvim-autopairs" -- Autopairs, integrates with both cmp and treesitter
   use 'tpope/vim-surround'
   use 'alvan/vim-closetag'
-  use "numToStr/Comment.nvim" -- Easily comment stuff
+--  use "numToStr/Comment.nvim" -- Easily comment stuff
   use 'kyazdani42/nvim-web-devicons'
   use 'kyazdani42/nvim-tree.lua'
   use "akinsho/bufferline.nvim"
