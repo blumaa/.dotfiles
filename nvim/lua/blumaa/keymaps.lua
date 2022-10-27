@@ -37,6 +37,13 @@ keymap("n", "<C-j>", "<C-w>j", opts)
 keymap("n", "<C-k>", "<C-w>k", opts)
 keymap("n", "<C-l>", "<C-w>l", opts)
 
+-- maximize window
+keymap("n", "<leader>(", "<C-W>_<C-W><bar>", opts)
+keymap("n", "<leader>)", "<C-W>=", opts)
+keymap("n", "<leader>1", ":vertical resize +4<CR>", opts)
+keymap("n", "<leader>2", ":vertical resize -4<CR>", opts)
+-- noremap <silent> ,_  <C-W>_<C-W><bar>
+
 keymap("n", "<leader>e", ":Lex 30<cr>", opts)
 
 -- Resize with arrows
@@ -46,8 +53,12 @@ keymap("n", "<C-Left>", ":vertical resize -2<CR>", opts)
 keymap("n", "<C-Right>", ":vertical resize +2<CR>", opts)
 
 -- Navigate buffers
-keymap("n", "<S-l>", ":bnext<CR>", opts)
-keymap("n", "<S-h>", ":bprevious<CR>", opts)
+keymap("n", "<S-l>", ":BufferLineCycleNext<CR>", opts)
+keymap("n", "<S-h>", ":BufferLineCyclePrev<CR>", opts)
+
+-- BarBar buffers
+-- keymap("n", "<S-l>", ":BufferNext<CR>", opts)
+-- keymap("n", "<S-h>", ":BufferPrevious<CR>", opts)
 
 -- Insert --
 -- Press jk fast to enter
@@ -72,13 +83,14 @@ keymap("x", "<A-k>", ":move '<-2<CR>gv-gv", opts)
 
 -- Terminal --
 -- Better terminal navigation
-keymap("t", "<C-h>", "<C-\\><C-N><C-w>h", term_opts)
-keymap("t", "<C-j>", "<C-\\><C-N><C-w>j", term_opts)
-keymap("t", "<C-k>", "<C-\\><C-N><C-w>k", term_opts)
-keymap("t", "<C-l>", "<C-\\><C-N><C-w>l", term_opts)
+-- keymap("t", "<C-h>", "<C-\\><C-N><C-w>h", term_opts)
+-- keymap("t", "<C-j>", "<C-\\><C-N><C-w>j", term_opts)
+-- keymap("t", "<C-k>", "<C-\\><C-N><C-w>k", term_opts)
+-- keymap("t", "<C-l>", "<C-\\><C-N><C-w>l", term_opts)
 
 -- keymap("n", "<leader>f", "<cmd>Telescope find_files<cr>", opts)
-keymap("n", "<leader>f", "<cmd>lua require'telescope.builtin'.find_files(require('telescope.themes').get_dropdown({}))<cr>", opts)
+keymap("n", "<leader>f", "<cmd>lua require('telescope.builtin').find_files({hidden=true})<cr>", opts)
+-- keymap("n", "<leader>f", "<cmd>lua require'telescope.builtin'.find_files(require('telescope.themes').get_dropdown({}))<cr>", opts)
 keymap("n", "<leader>p", "<cmd>Telescope live_grep<cr>", opts)
 
 -- Nvimtree
@@ -86,3 +98,14 @@ keymap("n", "<leader>e", ":NvimTreeToggle<cr>", opts)
 
 -- formatting 
 keymap("n", "<C-f>", ":Format<cr>", opts)
+
+-- gitsigns
+keymap("n", "<leader>bb", ":Gitsigns blame_line<cr>", opts)
+
+keymap("n", "<leader>bw", ":BufferOrderByWindowNumber<cr>", opts)
+
+keymap("n", "<leader>=", ":CocCommand prettier.formatFile<cr>", opts)
+
+-- close buffer without closing split
+keymap("n", "<leader>bd", ":b#<bar>bd#<cr>", opts)
+

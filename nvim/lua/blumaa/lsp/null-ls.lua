@@ -12,9 +12,9 @@ null_ls.setup {
   debug = false,
   sources = {
     formatting.prettier.with { extra_args = { "--no-semi", "--single-quote", "--jsx-single-quote" } },
-    formatting.stylua,
-    diagnostics.flake8,
     diagnostics.eslint,
+    formatting.stylua,
+    --[[ diagnostics.flake8, ]]
   },
 }
 

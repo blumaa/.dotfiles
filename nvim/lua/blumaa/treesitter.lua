@@ -4,7 +4,11 @@ if not status_ok then
 end
 
 configs.setup {
-  ensure_installed = "maintained",
+  context_commentstring = {
+    enable = true
+  },
+  ensure_installed = { "lua", "javascript", "html", "json", "regex", "ruby", "scss", "tsx", "typescript", "yaml", "go",
+    "css", "jsonc"  },
   sync_install = false,
   ignore_install = { "" }, -- List of parsers to ignore installing
   autopairs = {

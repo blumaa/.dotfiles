@@ -38,32 +38,52 @@ packer.init {
   },
 }
 
+
 -- Install your plugins here
 return packer.startup(function(use)
--- My plugins here
+  -- My plugins here
   use "wbthomason/packer.nvim" -- Have packer manage itself
   use "nvim-lua/popup.nvim" -- An implementation of the Popup API from vim in Neovim
   use "nvim-lua/plenary.nvim" -- Useful lua functions used ny lots of plugins
   use "windwp/nvim-autopairs" -- Autopairs, integrates with both cmp and treesitter
   use 'tpope/vim-surround'
   use 'alvan/vim-closetag'
---  use "numToStr/Comment.nvim" -- Easily comment stuff
+  use "numToStr/Comment.nvim" -- Easily comment stuff
+  -- use "terrortylor/nvim-comment"
   use 'kyazdani42/nvim-web-devicons'
   use 'kyazdani42/nvim-tree.lua'
-  use "akinsho/bufferline.nvim"
+  -- use {
+  --   'romgrk/barbar.nvim',
+  --   requires = { 'kyazdani42/nvim-web-devicons' }
+  -- }
+  use { 'akinsho/bufferline.nvim', tag = "v2.*", requires = 'kyazdani42/nvim-web-devicons' }
   use "moll/vim-bbye"
+  -- use 'dense-analysis/ale'
+  use { 'neoclide/coc.nvim', branch = 'release' }
+  use 'kevinoid/vim-jsonc'
+  use 'sbdchd/neoformat'
+  --[[ use 'matze/vim-move' ]]
 
--- Colorschemes
+  -- Git stuff
+  use 'tpope/vim-fugitive'
+  use 'rbong/vim-flog'
+
+  -- Colorschemes
   use "lunarvim/colorschemes" -- A bunch of colorschemes you can try out
-  -- use "lunarvim/darkplus.nvim"
+  --[[ use "ellisonleao/gruvbox.nvim" ]]
+  use { "catppuccin/nvim", as = "catppuccin" }
+  use "lunarvim/darkplus.nvim"
   use 'folke/tokyonight.nvim'
   use 'morhetz/gruvbox'
   use 'dracula/vim'
   use 'EdenEast/nightfox.nvim'
   use 'sainnhe/sonokai'
   use 'navarasu/onedark.nvim'
+  use 'ryanoasis/vim-devicons'
+  use 'eddyekofo94/gruvbox-flat.nvim'
+  use 'bluz71/vim-moonfly-colors'
 
--- cmp plugins
+  -- cmp plugins
   use "hrsh7th/nvim-cmp" -- The completion plugin
   use "hrsh7th/cmp-buffer" -- buffer completions
   use "hrsh7th/cmp-path" -- path completions
@@ -72,31 +92,32 @@ return packer.startup(function(use)
   use "hrsh7th/cmp-nvim-lsp"
   use "hrsh7th/cmp-nvim-lua"
 
--- snippets
+  -- snippets
   use "L3MON4D3/LuaSnip" --snippet engine
   use "rafamadriz/friendly-snippets" -- a bunch of snippets to use 
 
---LSP
+  --LSP
   use "neovim/nvim-lspconfig" -- enable LSP
   use "williamboman/nvim-lsp-installer" -- simple to use language server installer
   use "jose-elias-alvarez/null-ls.nvim" -- for formatters and linters
+  use 'leafgarland/typescript-vim'
 
--- Telescope
+  -- Telescope
   --  use "nvim-telescope/telescope.nvim"
   use {
     'nvim-telescope/telescope.nvim',
-    requires = { {'nvim-lua/plenary.nvim'} }
+    requires = { { 'nvim-lua/plenary.nvim' } }
   }
   use 'nvim-telescope/telescope-media-files.nvim'
 
--- Treesitter
+  -- Treesitter
   use {
     "nvim-treesitter/nvim-treesitter",
     run = ":TSUpdate",
   }
   use "p00f/nvim-ts-rainbow"
   use 'JoosepAlviste/nvim-ts-context-commentstring'
---  use "nvim-treesitter/playground"
+  --  use "nvim-treesitter/playground"
 
   -- Git
   use "lewis6991/gitsigns.nvim"
@@ -107,10 +128,27 @@ return packer.startup(function(use)
     requires = { 'kyazdani42/nvim-web-devicons', opt = true }
   }
 
+  --syntax
+  use "lukas-reineke/indent-blankline.nvim"
+  use "norcalli/nvim-colorizer.lua"
+
+  -- ruby / rails
+  use 'vim-ruby/vim-ruby'
+  use 'tpope/vim-rails'
+
+  -- Docker
+  use 'kkvh/vim-docker-tools'
+
+  --Markdown preview
+  use({
+    "iamcco/markdown-preview.nvim",
+    run = function() vim.fn["mkdp#util#install"]() end,
+  })
+
+
   -- Automatically set up your configuration after cloning packer.nvim
   -- Put this at the end after all plugins
   if PACKER_BOOTSTRAP then
     require("packer").sync()
   end
 end)
-

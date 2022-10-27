@@ -17,7 +17,7 @@ lualine.setup {
       'mode',
       {
         'filename',
-        path = 0,
+        path = 1,
       }
     },
     lualine_b = {'branch', 'diff', {'diagnostics', sources = { 'nvim_lsp' }}},

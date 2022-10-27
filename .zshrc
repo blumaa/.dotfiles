@@ -1,15 +1,22 @@
+# Enable Powerlevel10k instant prompt. Should stay close to the top of ~/.zshrc.
+# Initialization code that may require console input (password prompts, [y/n]
+# confirmations, etc.) must go above this block; everything else may go below.
+if [[ -r "${XDG_CACHE_HOME:-$HOME/.cache}/p10k-instant-prompt-${(%):-%n}.zsh" ]]; then
+  source "${XDG_CACHE_HOME:-$HOME/.cache}/p10k-instant-prompt-${(%):-%n}.zsh"
+fi
+
 # If you come from bash you might have to change your $PATH.
+export PATH=$PATH:/opt/homebrew/bin >> .zshrc
 # export PATH=$HOME/bin:/usr/local/bin:$PATH
 
 # Path to your oh-my-zsh installation.
-export ZSH="/Users/flatironschool/.oh-my-zsh"
+export ZSH="/Users/ablum/.oh-my-zsh"
 
 # Set name of the theme to load --- if set to "random", it will
 # load a random theme each time oh-my-zsh is loaded, in which case,
 # to know which specific one was loaded, run: echo $RANDOM_THEME
 # See https://github.com/ohmyzsh/ohmyzsh/wiki/Themes
-ZSH_THEME="robbyrussell"
-
+ZSH_THEME="powerlevel10k/powerlevel10k"
 # Set list of themes to pick from when loading at random
 # Setting this variable when ZSH_THEME=random will cause zsh to load
 # a theme from this variable instead of looking in $ZSH/themes/
@@ -98,21 +105,27 @@ source $ZSH/oh-my-zsh.sh
 # alias zshconfig="mate ~/.zshrc"
 # alias ohmyzsh="mate ~/.oh-my-zsh"
 
+# alias stree='/Applications/SourceTree.app/Contents/Resources/stree'
+# alias st='open -a SourceTree ./'
 alias st='open -a SourceTree ./'
-alias ga='git add'
-alias gc'git commit'
+alias br='git branch'
+alias ci='git commit -m'
 alias gst='git status'
-alias gl='git pull'
 alias gd='git diff'
-alias gco='git checkout'
-alias el='bundle exec npm run eslint-fix'
-alias sl='bundle exec npm run stylelint-fix'
-alias bi='bundle install'
-alias ni='npm install'
+alias co='git checkout'
+alias co='git checkout'
+alias cob='git checkout -b'
+# alias bi='bundle install'
+# alias ni='npm install'
+
+#localyze alias
+alias bes='bundle exec rails s'
+alias beside='bundle exec sidekiq'
+# alias fes='yarn start'
 
   # Set Spaceship ZSH as a prompt
-autoload -U promptinit; promptinit
-prompt spaceship
+# autoload -U promptinit; promptinit
+# prompt spaceship
 
 function gbso {
   git for-each-ref --sort=-committerdate refs/heads/ --format='%(refname:short)' | head -n 25
@@ -126,15 +139,21 @@ function gon {
   update_current_git_vars # remove if not using zsh-git-prompt
 }
 
-if type rg &> /dev/null; then
-  export FZF_DEFAULT_COMMAND='rg --files'
-  export FZF_DEFAULT_OPTS='-m --height 50% --border'
-fi
+# if type rg &> /dev/null; then
+#   export FZF_DEFAULT_COMMAND='rg --files'
+#   export FZF_DEFAULT_OPTS='-m --height 50% --border'
+# fi
 
 alias vim='nvim'
 alias vimconfig='vim ~/.config/nvim/init.lua'
 alias kittyconfig='vim ~/.config/kitty/kitty.conf'
-alias kt='cd /Users/flatironschool/Development/kinkytowers1/'
+
+alias loc='cd ~/Code/localyze/Backend/'
+alias pluto='cd ~/Code/localyze/pluto/'
 
 bindkey "^[[1;5C" forward-word
 bindkey "^[[1;5D" backward-word
+eval "$(pyenv init --path)"
+
+# To customize prompt, run `p10k configure` or edit ~/.p10k.zsh.
+[[ ! -f ~/.p10k.zsh ]] || source ~/.p10k.zsh

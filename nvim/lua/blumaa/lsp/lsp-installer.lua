@@ -11,6 +11,11 @@ lsp_installer.on_server_ready(function(server)
 		capabilities = require("blumaa.lsp.handlers").capabilities,
 	}
 
+	 if server.name == "solargraph" then
+	 	local solargraph_opts = require("blumaa.lsp.settings.solargraph")
+	 	opts = vim.tbl_deep_extend("force", solargraph_opts, opts)
+	 end
+  
 	 if server.name == "jsonls" then
 	 	local jsonls_opts = require("blumaa.lsp.settings.jsonls")
 	 	opts = vim.tbl_deep_extend("force", jsonls_opts, opts)

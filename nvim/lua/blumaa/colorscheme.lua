@@ -1,5 +1,10 @@
--- local colorscheme = "tokyonight"
- local colorscheme = "nightfox"
+--[[ local colorscheme = "moonfly" ]]
+local colorscheme = "catppuccin"
+--[[ local colorscheme = "darkplus" ]]
+--[[ local colorscheme = "moonfly" ]]
+--[[ local colorscheme = "tokyonight" ]]
+--[[ local colorscheme = "nightfox" ]]
+--[[ local colorscheme = "gruvbox-flat" ]]
 
  local status_ok, _ = pcall(vim.cmd, "colorscheme " .. colorscheme)
  if not status_ok then
