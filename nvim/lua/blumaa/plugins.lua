@@ -64,6 +64,15 @@ return packer.startup(function(use)
   use 'sbdchd/neoformat'
   --[[ use 'matze/vim-move' ]]
 
+use {
+  'jinh0/eyeliner.nvim',
+  config = function()
+    require'eyeliner'.setup {
+      highlight_on_key = true
+    }
+  end
+}
+  --[[ use 'unblevable/quick-scope' ]]
   -- Git stuff
   use 'tpope/vim-fugitive'
   use 'rbong/vim-flog'
@@ -144,7 +153,6 @@ return packer.startup(function(use)
     "iamcco/markdown-preview.nvim",
     run = function() vim.fn["mkdp#util#install"]() end,
   })
-
 
   -- Automatically set up your configuration after cloning packer.nvim
   -- Put this at the end after all plugins

@@ -33,27 +33,27 @@ bufferline.setup({
     sort_by = 'relative_directory', -- | 'directory' | 'tabs' | function(buffer_a, buffer_b)
   },
   highlights = {
-    separator = {
-      fg = '#fc03ca',
-      bg = '#fc03ca',
-    },
-    separator_selected = {
-      fg = '#073642',
-    },
-    background = {
-      fg = '#657b83',
-      bg = '#002b36'
-    },
-    buffer_selected = {
-      fg = '#fdf6e3',
-      bg = '#37eb34'
-    },
-    indicator_selected = {
-      fg = '#fc03ca',
-      bg = '#fc03ca',
-    },
-    fill = {
-      bg = '#073642'
-    }
+    --[[ separator = { ]]
+    --[[   fg = '#fc03ca', ]]
+    --[[   bg = '#fc03ca', ]]
+    --[[ }, ]]
+    --[[ separator_selected = { ]]
+    --[[   fg = '#073642', ]]
+    --[[ }, ]]
+    --[[ background = { ]]
+    --[[   fg = '#657b83', ]]
+    --[[   bg = '#002b36' ]]
+    --[[ }, ]]
+    --[[ buffer_selected = { ]]
+    --[[   fg = '#fdf6e3', ]]
+    --[[   bg = '#37eb34' ]]
+    --[[ }, ]]
+    --[[ indicator_selected = { ]]
+    --[[   fg = '#fc03ca', ]]
+    --[[   bg = '#fc03ca', ]]
+    --[[ }, ]]
+    --[[ fill = { ]]
+    --[[   bg = '#073642' ]]
+    --[[ } ]]
   },
 })
