@@ -170,6 +170,11 @@ _G.packer_plugins = {
     path = "/Users/ablum/.local/share/nvim/site/pack/packer/start/indent-blankline.nvim",
     url = "https://github.com/lukas-reineke/indent-blankline.nvim"
   },
+  ["lspkind-nvim"] = {
+    loaded = true,
+    path = "/Users/ablum/.local/share/nvim/site/pack/packer/start/lspkind-nvim",
+    url = "https://github.com/onsails/lspkind-nvim"
+  },
   ["lualine.nvim"] = {
     loaded = true,
     path = "/Users/ablum/.local/share/nvim/site/pack/packer/start/lualine.nvim",
@@ -260,11 +265,6 @@ _G.packer_plugins = {
     path = "/Users/ablum/.local/share/nvim/site/pack/packer/start/plenary.nvim",
     url = "https://github.com/nvim-lua/plenary.nvim"
   },
-  ["popup.nvim"] = {
-    loaded = true,
-    path = "/Users/ablum/.local/share/nvim/site/pack/packer/start/popup.nvim",
-    url = "https://github.com/nvim-lua/popup.nvim"
-  },
   sonokai = {
     loaded = true,
     path = "/Users/ablum/.local/share/nvim/site/pack/packer/start/sonokai",
@@ -299,11 +299,6 @@ _G.packer_plugins = {
     loaded = true,
     path = "/Users/ablum/.local/share/nvim/site/pack/packer/start/vim-bbye",
     url = "https://github.com/moll/vim-bbye"
-  },
-  ["vim-closetag"] = {
-    loaded = true,
-    path = "/Users/ablum/.local/share/nvim/site/pack/packer/start/vim-closetag",
-    url = "https://github.com/alvan/vim-closetag"
   },
   ["vim-devicons"] = {
     loaded = true,
@@ -349,6 +344,11 @@ _G.packer_plugins = {
     loaded = true,
     path = "/Users/ablum/.local/share/nvim/site/pack/packer/start/vim-surround",
     url = "https://github.com/tpope/vim-surround"
+  },
+  ["vim-vsnip"] = {
+    loaded = true,
+    path = "/Users/ablum/.local/share/nvim/site/pack/packer/start/vim-vsnip",
+    url = "https://github.com/hrsh7th/vim-vsnip"
   }
 }
 
