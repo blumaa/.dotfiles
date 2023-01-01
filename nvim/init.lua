@@ -1,0 +1,2 @@
+require('blumaa')
+print("hello")
