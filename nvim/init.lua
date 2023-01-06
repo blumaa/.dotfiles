@@ -1,2 +1,2 @@
 require('blumaa')
-print("hello")
+-- print("hello")

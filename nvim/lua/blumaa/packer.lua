@@ -48,9 +48,12 @@ return require('packer').startup(function(use)
   use {
     'numToStr/Comment.nvim',
     config = function()
-      require('Comment').setup()
+      require('Comment').setup({
+        pre_hook = require('ts_context_commentstring.integrations.comment_nvim').create_pre_hook(),
+      })
     end
   }
+  use 'JoosepAlviste/nvim-ts-context-commentstring'
 
   use "lukas-reineke/indent-blankline.nvim"
 
@@ -73,5 +76,11 @@ return require('packer').startup(function(use)
   --    'nvim-lualine/lualine.nvim',
   --    requires = { 'kyazdani42/nvim-web-devicons', opt = true }
   --  }
+
+  --  Language Syntax and Indenting
+
+  use 'maxmellon/vim-jsx-pretty'
+  use('jose-elias-alvarez/null-ls.nvim')
+  use('MunifTanjim/prettier.nvim')
 
 end)

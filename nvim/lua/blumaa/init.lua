@@ -1,5 +1,6 @@
 require("blumaa.cat")
 require("blumaa.nvim-tree")
+-- require("blumaa.null-ls")
 require("blumaa.packer")
 require("blumaa.remap")
 require("blumaa.set")

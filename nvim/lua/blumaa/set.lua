@@ -1,4 +1,5 @@
-vim.opt.guicursor = ""
+vim.opt.guicursor = "n-v-c-sm:block,i-ci-ve:ver25,r-cr-o:hor20,i:blinkwait700-blinkoff400-blinkon250-Cursor/lCursor,sm:block-blinkwait175-blinkoff150-blinkon175"
+vim.opt.signcolumn = 'yes'
 
 vim.opt.nu = true
 vim.opt.relativenumber = false
