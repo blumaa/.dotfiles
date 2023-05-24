@@ -5,19 +5,19 @@ lsp.preset("recommended")
 lsp.ensure_installed({
   'tsserver',
   'eslint',
-  'sumneko_lua',
+  'lua_ls',
 })
 
 -- Fix Undefined global 'vim'
-lsp.configure('sumneko_lua', {
-  settings = {
-    Lua = {
-      diagnostics = {
-        globals = { 'vim' }
-      }
-    }
-  }
-})
+-- lsp.configure('sumneko_lua', {
+--   settings = {
+--     Lua = {
+--       diagnostics = {
+--         globals = { 'vim' }
+--       }
+--     }
+--   }
+-- })
 
 lsp.configure('tsserver', {
   -- single_file_support = false,
@@ -40,9 +40,24 @@ local cmp_mappings = lsp.defaults.cmp_mappings({
 cmp_mappings['<Tab>'] = nil
 cmp_mappings['<S-Tab>'] = nil
 
+cmp.setup {
+  sources = {
+    -- Copilot Source
+    { name = "copilot",  group_index = 2 },
+    -- Other Sources
+    { name = "friendly-snippets", group_index = 2 },
+    { name = "nvim_lsp", group_index = 2 },
+    { name = "path",     group_index = 2 },
+    { name = "luasnip",  group_index = 2 },
+  },
+}
+
 lsp.setup_nvim_cmp({
   mapping = cmp_mappings
 })
+
+local cmp_autopairs = require "nvim-autopairs.completion.cmp"
+cmp.event:on("confirm_done", cmp_autopairs.on_confirm_done { map_char = { tex = "" } })
 
 lsp.set_preferences({
   suggest_lsp_servers = true,

@@ -7,12 +7,6 @@ require("nvim-tree").setup({
   },
   view = {
     adaptive_size = true,
-    mappings = {
-      list = {
-        -- { key = { "l", "<CR>", "o" }, cb = tree_cb("edit") },
-        { key = "u", action = "dir_up" },
-      },
-    },
   },
   renderer = {
     group_empty = true,

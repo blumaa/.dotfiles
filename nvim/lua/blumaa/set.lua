@@ -33,4 +33,5 @@ vim.opt.updatetime = 50
 
 vim.g.mapleader = " "
 
-vim.cmd.colorscheme "catppuccin"
+-- vim.cmd.colorscheme "catppuccin"
+vim.cmd.colorscheme "onedark"
