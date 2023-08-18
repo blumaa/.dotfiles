@@ -1,5 +1,4 @@
 vim.g.mapleader = " "
--- vim.keymap.set("n", "<leader>pv", vim.cmd.Ex)
 
 -- move line up or down
 vim.keymap.set("v", "J", ":m '>+1<CR>gv=gv")
@@ -26,7 +25,7 @@ vim.keymap.set({ "n", "v" }, "<leader>d", [["_d]])
 
 vim.keymap.set("n", "Q", "<nop>")
 -- vim.keymap.set("n", "<C-f>", "<cmd>silent !tmux neww tmux-sessionizer<CR>")
-vim.keymap.set("n", "<leader>f", vim.lsp.buf.format)
+vim.keymap.set("n", "<leader>=", vim.lsp.buf.format)
 vim.keymap.set("n", "<leader>pp", ":Prettier<CR>")
 
 -- vim.keymap.set("n", "<C-k>", "<cmd>cnext<CR>zz")
@@ -37,7 +36,7 @@ vim.keymap.set("n", "<leader>j", "<cmd>lprev<CR>zz")
 vim.keymap.set("n", "<leader>tr", ":Telescope lsp_references<CR>")
 
 -- search and replace current word
-vim.keymap.set("n", "<leader>s", [[:%s/\<<C-r><C-w>\>/<C-r><C-w>/gI<Left><Left><Left>]])
+vim.keymap.set("n", "<leader>sr", [[:%s/\<<C-r><C-w>\>/<C-r><C-w>/gI<Left><Left><Left>]])
 vim.keymap.set("n", "<leader>x", "<cmd>!chmod +x %<CR>", { silent = true })
 
 -- easily save and exit windows
@@ -80,3 +79,4 @@ function _G.toggle_diagnostics()
 end
 
 vim.keymap.set('n', '<Leader>d', ':call v:lua.toggle_diagnostics()<CR>')
+vim.keymap.set("n", "<leader>u", vim.cmd.UndotreeToggle)

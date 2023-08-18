@@ -1,6 +1,6 @@
 require('copilot').setup({
   panel = {
-    enabled = true,
+    enabled = false,
     auto_refresh = false,
     keymap = {
       jump_prev = "[[",
@@ -15,8 +15,8 @@ require('copilot').setup({
     },
   },
   suggestion = {
-    enabled = true,
-    auto_trigger = false,
+    enabled = false,
+    auto_trigger = true,
     debounce = 75,
     keymap = {
       accept = "<M-l>",

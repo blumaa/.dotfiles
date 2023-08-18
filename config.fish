@@ -1,3 +1,5 @@
+alias bs='bin/setup'
+alias bd='bin/dev'
 alias br='git branch'
 alias ci='git commit -m'
 alias gst='git status'
@@ -5,6 +7,9 @@ alias gd='git diff'
 alias co='git checkout'
 alias co='git checkout'
 alias cob='git checkout -b'
+alias grom='git rebase origin/main'
+
+alias lococheck='yarn prettier-check -w && yarn tsc && yarn lint'
 
 # alias ls='ls -lsh --color=auto | lolcat'
 alias ls='ls -lsh --color=auto'
@@ -22,6 +27,8 @@ abbr -a xnew 'tmux new-session -s'
 abbr -a xls 'tmux list-sessions'
 # abbr -a tksv 'tmux kill-server'
 abbr -a xk 'tmux kill-session -t'
+abbr -a xrr 'tmux resize-pane -R 10'
+abbr -a xrl 'tmux resize-pane -L 10'
 
 
 #localyze alias
@@ -63,8 +70,34 @@ alias pluto='cd ~/Code/localyze/pluto/'
 alias talent='cd ~/Code/localyze/talent-web/'
 alias stage='cd ~/Code/stage/'
 
-if status is-interactive
-    # Commands to run in interactive sessions can go here
+# if status is-interactive
+#     # Commands to run in interactive sessions can go here
+# end
+
+function nvim-astro
+    env NVIM_APPNAME=nvim-astro nvim
 end
+
+function default
+    env NVIM_APPNAME= nvim
+end
+
+function nvim-chad
+    env NVIM_APPNAME=nvim-chad nvim
+end
+
+function nvims
+    set items default nvim-astro nvim-chad
+    set config (printf "%s\n" $items | fzf --prompt=" Neovim Config  " --height=~50% --layout=reverse --border --exit-0)
+    if [ -z $config ]
+        echo "Nothing selected"
+        return 0
+    else if [ $config = "default" ]
+        set config ""
+    end
+    env NVIM_APPNAME=$config nvim $argv
+end
+
+bind \ca nvims
 
 source /opt/homebrew/opt/asdf/libexec/asdf.fish

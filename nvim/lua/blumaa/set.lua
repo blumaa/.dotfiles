@@ -31,7 +31,6 @@ vim.opt.isfname:append("@-@")
 
 vim.opt.updatetime = 50
 
-vim.g.mapleader = " "
+-- vim.g.mapleader = " "
 
--- vim.cmd.colorscheme "catppuccin"
-vim.cmd.colorscheme "onedark"
+vim.cmd.colorscheme "catppuccin"
