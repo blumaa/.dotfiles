@@ -32,6 +32,22 @@ return require('packer').startup(function(use)
     },
     tag = 'nightly'                  -- optional, updated every week. (see issue #1193)
   }
+  -- ************************************************************
+  -- ruby projectionist
+  -- ************************************************************
+  use 'tpope/vim-projectionist'
+
+  -- ************************************************************
+  -- testing
+  -- ************************************************************
+  -- use 'vim-test/vim-test'
+
+  use {
+    "klen/nvim-test",
+    config = function()
+      require('nvim-test').setup()
+    end
+  }
 
   -- ************************************************************
   -- color schemes

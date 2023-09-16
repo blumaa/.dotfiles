@@ -1,6 +1,6 @@
 require("nvim-tree").setup({
   sort_by = "case_sensitive",
-  update_cwd = false,
+  update_cwd = true,
   update_focused_file = {
     enable = true,
     update_cwd = true,
@@ -12,7 +12,7 @@ require("nvim-tree").setup({
     group_empty = true,
   },
   filters = {
-    dotfiles = true,
+    dotfiles = false,
   },
   actions = {
     open_file = {

@@ -20,11 +20,26 @@ lsp.configure('lua_ls', {
   }
 })
 
+local function organize_imports()
+  local params = {
+    command = "_typescript.organizeImports",
+    arguments = {vim.api.nvim_buf_get_name(0)},
+    title = ""
+  }
+  vim.lsp.buf.execute_command(params)
+end
+
 lsp.configure('tsserver', {
   -- single_file_support = false,
   on_attach = function(client, bufnr)
     print('hello tsserver')
-  end
+  end,
+  commands = {
+    OrganizeImports = {
+      organize_imports,
+      description = "Organize Imports"
+    }
+  }
 })
 
 local cmp = require('cmp')
@@ -95,3 +110,4 @@ lsp.setup()
 vim.diagnostic.config({
   virtual_text = true,
 })
+
