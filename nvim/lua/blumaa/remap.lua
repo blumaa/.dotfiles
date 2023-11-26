@@ -49,6 +49,8 @@ vim.keymap.set("n", "<DOWN>", ":w<CR>")
 
 vim.keymap.set("i", "jk", "<ESC>")
 
+vim.keymap.set("n", "<leader>9", ":horizontal resize +4<CR>")
+vim.keymap.set("n", "<leader>0", ":horizontal resize -4<CR>")
 vim.keymap.set("n", "<leader>1", ":vertical resize +4<CR>")
 vim.keymap.set("n", "<leader>2", ":vertical resize -4<CR>")
 
@@ -83,3 +85,8 @@ end
 
 vim.keymap.set('n', '<Leader>d', ':call v:lua.toggle_diagnostics()<CR>')
 vim.keymap.set("n", "<leader>u", vim.cmd.UndotreeToggle)
+vim.keymap.set("n", "<leader>-", ":vsplit<cr>")
+vim.keymap.set("n", "<leader>_", ":split<cr>")
+
+-- vim-test shortcuts
+vim.api.nvim_set_keymap('n', '<leader>T', ':TestFile -strategy=neovim<CR>', { noremap = true, silent = true })

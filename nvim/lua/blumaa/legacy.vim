@@ -1,5 +1,5 @@
-" set runtimepath^=~/.vim runtimepath+=~/.vim/after
-" let &packpath = &runtimepath
+set runtimepath^=~/.vim runtimepath+=~/.vim/after
+let &packpath = &runtimepath
 
 " https://github.com/vim/vim/issues/4830
 " Proper file detection
@@ -9,6 +9,5 @@ au BufNewFile,BufRead *.jsx setf javascriptreact
 au BufNewFile,BufRead *.tsx setf typescriptreact
 
 " force craco to run jest if localyze project
-autocmd BufNewFile,BufRead ~/code/localyze/*backend/client/* let test#javascript#jest#executable = 'yarn test --watchAll=false'
+autocmd BufNewFile,BufRead ~/Code/localyze/*backend/client/* let test#javascript#jest#executable = 'yarn test --watchAll=false'
 
-" source ~/.vimrc

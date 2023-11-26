@@ -1,6 +1,7 @@
 vim.cmd.colorscheme "catppuccin"
 
-vim.opt.guicursor = "n-v-c-sm:block,i-ci-ve:ver25,r-cr-o:hor20,i:blinkwait700-blinkoff400-blinkon250-Cursor/lCursor,sm:block-blinkwait175-blinkoff150-blinkon175"
+vim.opt.guicursor =
+"n-v-c-sm:block,i-ci-ve:ver25,r-cr-o:hor20,i:blinkwait700-blinkoff400-blinkon250-Cursor/lCursor,sm:block-blinkwait175-blinkoff150-blinkon175"
 vim.opt.signcolumn = 'yes'
 
 vim.opt.nu = true
@@ -35,3 +36,5 @@ vim.opt.updatetime = 50
 
 -- vim.g.mapleader = " "
 
+-- vim.api.nvim_set_keymap("n", "<leader>tw", "<cmd>lua require('neotest').run.run({ jestCommand = 'jest --watch ' })<cr>", {})
+vim.api.nvim_set_keymap('n', '<leader>T', ':TestFile<CR>', { noremap = true, silent = true })

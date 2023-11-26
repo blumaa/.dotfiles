@@ -40,14 +40,24 @@ return require('packer').startup(function(use)
   -- ************************************************************
   -- testing
   -- ************************************************************
-  -- use 'vim-test/vim-test'
 
   use {
-    "klen/nvim-test",
-    config = function()
-      require('nvim-test').setup()
-    end
+    "nvim-neotest/neotest",
+    requires = {
+      "nvim-lua/plenary.nvim",
+      "antoinemadec/FixCursorHold.nvim",
+      'haydenmeade/neotest-jest',
+    },
   }
+
+  use "janko-m/vim-test"
+
+  -- use {
+  --   "klen/nvim-test",
+  --   config = function()
+  --     require('nvim-test').setup()
+  --   end
+  -- }
 
   -- ************************************************************
   -- color schemes
