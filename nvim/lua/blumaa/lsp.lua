@@ -13,7 +13,12 @@ require('mason').setup({
   'solargraph',
 })
 require('mason-lspconfig').setup({
-  ensure_installed = {},
+  ensure_installed = {
+    'tsserver',
+    'eslint',
+    'lua_ls',
+    'solargraph',
+  },
   handlers = {
     lsp_zero.default_setup,
   },
@@ -62,7 +67,7 @@ require('mason-lspconfig').setup({
 -- })
 --
 --
-local cmp = require('cmp')
+-- local cmp = require('cmp')
 -- local cmp_select = { behavior = cmp.SelectBehavior.Select }
 -- local cmp_mappings = lsp.defaults.cmp_mappings({
 --   ['<C-p>'] = cmp.mapping.select_prev_item(cmp_select),
@@ -71,26 +76,26 @@ local cmp = require('cmp')
 --   ["<C-Space>"] = cmp.mapping.complete(),
 -- })
 --
-require('luasnip.loaders.from_vscode').lazy_load()
-require 'luasnip'.filetype_extend("ruby", { "rails" })
+-- require('luasnip.loaders.from_vscode').lazy_load()
+-- require 'luasnip'.filetype_extend("ruby", { "rails" })
 --
 -- disable completion with tab
 -- this helps with copilot setup
 -- cmp_mappings['<Tab>'] = nil
 -- cmp_mappings['<S-Tab>'] = nil
 --
-cmp.setup {
-  sources = {
-    { name = "luasnip",           group_index = 2 },
-    { name = "vsnip",             group_index = 2 },
-    -- Copilot Source
-    { name = "copilot",           group_index = 2 },
-    -- Other Sources
-    { name = "friendly-snippets", group_index = 2 },
-    { name = "nvim_lsp",          group_index = 2 },
-    { name = "path",              group_index = 2 },
-  },
-}
+-- cmp.setup {
+--   sources = {
+--     { name = "luasnip",           group_index = 2 },
+--     { name = "vsnip",             group_index = 2 },
+--     -- Copilot Source
+--     -- { name = "copilot",           group_index = 2 },
+--     -- Other Sources
+--     { name = "friendly-snippets", group_index = 2 },
+--     { name = "nvim_lsp",          group_index = 2 },
+--     { name = "path",              group_index = 2 },
+--   },
+-- }
 --
 -- lsp.setup_nvim_cmp({
 --   mapping = cmp_mappings
