@@ -1,32 +1,29 @@
+# aliases
+
 alias vim='nvim'
+
 alias vimconfig='vim ~/.config/nvim/init.lua'
 alias zconfig='vim ~/.zshrc'
-alias kt='cd /Users/flatironschool/Development/kinkytowers1/'
-alias nn='cd /Users/flatironschool/Development/net-ninja/'
-alias stage='cd /Users/flatironschool/Development/stage/'
-alias development='cd /Users/flatironschool/Development/'
 alias fishconfig='vim ~/.config/fish/config.fish'
 
-# aliases
+alias dev='cd /Users/ablum/Development/'
+alias port='cd /Users/ablum/Development/portfolio/portfolio-2023/'
+alias kt='cd /Users/ablum/Development/kinkytowers/'
+
 alias br='git branch'
 alias ci='git commit -m'
 alias gst='git status'
 alias gd='git diff'
 alias co='git checkout'
 alias cob='git checkout -b'
-alias ls='ls -lsh --color=auto'
 alias grom='git rebase origin/main'
 
+alias ls='ls -lsh --color=auto'
+
 # tmux aliases
-# alias xnew='tmux new-session -t'
-# alias xk='tmux kill-session -t'
-# alias xat='tmux attach -t'
-# alias xls='tmux ls'
 abbr -a xat 'tmux attach -t'
-# abbr -a tad 'tmux attach -d -t'
 abbr -a xnew 'tmux new-session -s'
 abbr -a xls 'tmux list-sessions'
-# abbr -a tksv 'tmux kill-server'
 abbr -a xk 'tmux kill-session -t'
 abbr -a xrr 'tmux resize-pane -R 10'
 
@@ -85,5 +82,7 @@ function nvims
 end
 
 bind \ca nvims
+
+export PATH="$HOME/.cargo/bin:$PATH"
 
 source /usr/local/opt/asdf/libexec/asdf.fish
