@@ -10,35 +10,32 @@ require('copilot').setup({
       open = "<M-CR>"
     },
     layout = {
-      position = "bottom", -- | top | left | right
+      position = "right", -- | top | left | right
       ratio = 0.4
     },
   },
   suggestion = {
-    enabled = false,
+    enabled = true,
     auto_trigger = true,
     debounce = 75,
     keymap = {
-      accept = "<M-l>",
+      accept = "<leader>c",
       accept_word = false,
       accept_line = false,
-      next = "<M-]>",
-      prev = "<M-[>",
+      next = "<leader>n",
+      prev = "<leader>l",
       dismiss = "<C-]>",
     },
   },
   filetypes = {
     yaml = false,
-    markdown = false,
     help = false,
     gitcommit = false,
-    gitrebase = false,
     hgcommit = false,
     svn = false,
     cvs = false,
     ["."] = false,
   },
-  copilot_node_command = 'node', -- Node.js version must be > 16.x
+  copilot_node_command = 'node',
   server_opts_overrides = {},
 })
-

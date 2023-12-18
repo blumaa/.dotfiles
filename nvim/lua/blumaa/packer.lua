@@ -18,7 +18,7 @@ return require('packer').startup(function(use)
   -- Essential Core
   -- ************************************************************
   use {
-    'nvim-telescope/telescope.nvim', tag = '0.1.2',
+    'nvim-telescope/telescope.nvim', tag = '0.1.5',
     -- or                            , branch = '0.1.x',
     requires = { { 'nvim-lua/plenary.nvim' } }
   }
@@ -35,7 +35,7 @@ return require('packer').startup(function(use)
   -- ************************************************************
   -- ruby projectionist
   -- ************************************************************
-  use 'tpope/vim-projectionist'
+  -- use 'tpope/vim-projectionist'
 
   -- ************************************************************
   -- testing
@@ -50,22 +50,13 @@ return require('packer').startup(function(use)
     },
   }
 
-  use "janko-m/vim-test"
-
-  -- use {
-  --   "klen/nvim-test",
-  --   config = function()
-  --     require('nvim-test').setup()
-  --   end
-  -- }
-
   -- ************************************************************
   -- color schemes
   -- ************************************************************
   use { "catppuccin/nvim", as = "catppuccin" }
 
   -- ************************************************************
-  -- extra
+  -- extras
   -- ************************************************************
   -- use 'luochen1990/rainbow' -- rainbow parentheses
   use {
@@ -79,20 +70,20 @@ return require('packer').startup(function(use)
   use 'JoosepAlviste/nvim-ts-context-commentstring'
   use "lukas-reineke/indent-blankline.nvim"
 
-  use { -- color picker with hex
-    'uga-rosa/ccc.nvim',
-    config = function()
-      require('ccc').setup({
-        highlighter = {
-          auto_enable = true,
-          lsp = true,
-        },
-      })
-    end
-  }
+  -- use { -- color picker with hex
+  --   'uga-rosa/ccc.nvim',
+  --   config = function()
+  --     require('ccc').setup({
+  --       highlighter = {
+  --         auto_enable = true,
+  --         lsp = true,
+  --       },
+  --     })
+  --   end
+  -- }
 
   use('ThePrimeagen/harpoon')
-  use('mbbill/undotree')
+  -- use('mbbill/undotree')
   use 'tpope/vim-surround'
   use {
     "windwp/nvim-autopairs",
@@ -109,7 +100,7 @@ return require('packer').startup(function(use)
   -- Formatting/linting
   -- ************************************************************
   use('MunifTanjim/prettier.nvim')
-  use 'maxmellon/vim-jsx-pretty'
+  -- use 'maxmellon/vim-jsx-pretty'
   use('jose-elias-alvarez/null-ls.nvim')
 
 
@@ -126,6 +117,7 @@ return require('packer').startup(function(use)
 
   use {
     'VonHeikemen/lsp-zero.nvim',
+    branch = 'v3.x',
     requires = {
       -- LSP Support
       { 'neovim/nvim-lspconfig' },
@@ -133,24 +125,57 @@ return require('packer').startup(function(use)
       { 'williamboman/mason-lspconfig.nvim' },
 
       -- Autocompletion
-      { 'L3MON4D3/LuaSnip' },
-      { 'hrsh7th/nvim-cmp' },
+      -- { 'L3MON4D3/LuaSnip' },
+      -- { 'hrsh7th/nvim-cmp' },
       { 'hrsh7th/cmp-buffer' },
       { 'hrsh7th/cmp-path' },
-      { 'saadparwaiz1/cmp_luasnip' },
+      -- { 'saadparwaiz1/cmp_luasnip' },
       { 'hrsh7th/cmp-nvim-lsp' },
       { 'hrsh7th/cmp-nvim-lua' },
+      { 'hrsh7th/vim-vsnip' },
+      { "simrat39/rust-tools.nvim" },
+
 
       -- Snippets
-      { 'L3MON4D3/LuaSnip' },
+      -- { 'L3MON4D3/LuaSnip' },
       { 'rafamadriz/friendly-snippets' },
     }
   }
+
+  -- Snippets
+  use({
+    "L3MON4D3/LuaSnip",
+    -- follow latest release.
+    tag = "v2.*", -- Replace <CurrentMajor> by the latest released major (first number of latest release)
+    -- install jsregexp (optional!:).
+    run = "make install_jsregexp"
+  })
+
+  use {
+    'hrsh7th/nvim-cmp',
+    config = function()
+      require 'cmp'.setup {
+        snippet = {
+          expand = function(args)
+            require 'luasnip'.lsp_expand(args.body)
+          end
+        },
+
+        sources = {
+          { name = 'luasnip' },
+          -- more sources
+        },
+      }
+    end
+  }
+  use { 'saadparwaiz1/cmp_luasnip' }
+
 
 
   -- ************************************************************
   -- AI Tools
   -- ************************************************************
+
   use { "zbirenbaum/copilot.lua" }
   use {
     "zbirenbaum/copilot-cmp",

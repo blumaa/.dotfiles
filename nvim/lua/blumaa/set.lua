@@ -1,3 +1,5 @@
+-- let g:rustc_path = "~./cargo/bin/rustc"
+
 vim.cmd.colorscheme "catppuccin"
 
 vim.opt.guicursor =
