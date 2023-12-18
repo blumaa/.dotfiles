@@ -85,16 +85,20 @@ return require('packer').startup(function(use)
   use('ThePrimeagen/harpoon')
   -- use('mbbill/undotree')
   use 'tpope/vim-surround'
-  use {
-    "windwp/nvim-autopairs",
-    config = function() require("nvim-autopairs").setup {} end
-  }
-  use { 'm4xshen/autoclose.nvim',
-    config = function() require("autoclose").setup {} end
-  }
+
+  use({ -- autoclose and autorename tags
+    "windwp/nvim-ts-autotag",
+    config = function()
+      require("nvim-treesitter.configs").setup({
+        autotag = {
+          enable = true,
+        },
+      })
+    end,
+  })
 
 
-  -- use 'kyazdani42/nvim-web-devicons'
+
 
   -- ************************************************************
   -- Formatting/linting
@@ -119,71 +123,33 @@ return require('packer').startup(function(use)
     'VonHeikemen/lsp-zero.nvim',
     branch = 'v3.x',
     requires = {
-      -- LSP Support
-      { 'neovim/nvim-lspconfig' },
+      --- Uncomment these if you want to manage LSP servers from neovim
       { 'williamboman/mason.nvim' },
       { 'williamboman/mason-lspconfig.nvim' },
 
+      -- LSP Support
+      { 'neovim/nvim-lspconfig' },
       -- Autocompletion
-      -- { 'L3MON4D3/LuaSnip' },
-      -- { 'hrsh7th/nvim-cmp' },
-      { 'hrsh7th/cmp-buffer' },
-      { 'hrsh7th/cmp-path' },
-      -- { 'saadparwaiz1/cmp_luasnip' },
+      { 'hrsh7th/nvim-cmp' },
       { 'hrsh7th/cmp-nvim-lsp' },
-      { 'hrsh7th/cmp-nvim-lua' },
-      { 'hrsh7th/vim-vsnip' },
-      { "simrat39/rust-tools.nvim" },
-
-
-      -- Snippets
-      -- { 'L3MON4D3/LuaSnip' },
-      { 'rafamadriz/friendly-snippets' },
+      { 'L3MON4D3/LuaSnip' },
     }
   }
 
-  -- Snippets
-  use({
-    "L3MON4D3/LuaSnip",
-    -- follow latest release.
-    tag = "v2.*", -- Replace <CurrentMajor> by the latest released major (first number of latest release)
-    -- install jsregexp (optional!:).
-    run = "make install_jsregexp"
-  })
-
-  use {
-    'hrsh7th/nvim-cmp',
-    config = function()
-      require 'cmp'.setup {
-        snippet = {
-          expand = function(args)
-            require 'luasnip'.lsp_expand(args.body)
-          end
-        },
-
-        sources = {
-          { name = 'luasnip' },
-          -- more sources
-        },
-      }
-    end
-  }
-  use { 'saadparwaiz1/cmp_luasnip' }
-
-
+  use { "simrat39/rust-tools.nvim" }
 
   -- ************************************************************
   -- AI Tools
   -- ************************************************************
 
-  use { "zbirenbaum/copilot.lua" }
-  use {
-    "zbirenbaum/copilot-cmp",
-    after = { "copilot.lua" },
-    config = function()
-      require("copilot_cmp").setup()
-    end
-  }
+  -- use { "zbirenbaum/copilot.lua" }
+  -- use {
+  --   "zbirenbaum/copilot-cmp",
+  --   after = { "copilot.lua" },
+  --   config = function()
+  --     require("copilot_cmp").setup()
+  --   end
+  -- }
 
   -- Automatically set up your configuration after cloning packer.nvim
   -- Put this at the end after all plugins
