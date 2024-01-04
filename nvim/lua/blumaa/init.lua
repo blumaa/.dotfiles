@@ -1,4 +1,3 @@
--- require("blumaa.autopairs")
 require("blumaa.remap")
 require("blumaa.cat")
 -- require("blumaa.copilot")

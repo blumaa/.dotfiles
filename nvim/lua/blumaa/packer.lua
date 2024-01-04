@@ -58,7 +58,7 @@ return require('packer').startup(function(use)
   -- ************************************************************
   -- extras
   -- ************************************************************
-  -- use 'luochen1990/rainbow' -- rainbow parentheses
+  use 'luochen1990/rainbow' -- rainbow parentheses
   use {
     'numToStr/Comment.nvim',
     config = function()
@@ -97,8 +97,10 @@ return require('packer').startup(function(use)
     end,
   })
 
-
-
+  use {
+	"windwp/nvim-autopairs",
+    config = function() require("nvim-autopairs").setup {} end
+}
 
   -- ************************************************************
   -- Formatting/linting
@@ -118,7 +120,6 @@ return require('packer').startup(function(use)
   -- ************************************************************
   -- LSP
   -- ************************************************************
-
   use {
     'VonHeikemen/lsp-zero.nvim',
     branch = 'v3.x',
@@ -132,9 +133,22 @@ return require('packer').startup(function(use)
       -- Autocompletion
       { 'hrsh7th/nvim-cmp' },
       { 'hrsh7th/cmp-nvim-lsp' },
-      { 'L3MON4D3/LuaSnip' },
+      { 'L3MON4D3/LuaSnip',
+        tag = "v2.*",
+        run = "make install_jsregexp"
+      },
+      { 'hrsh7th/cmp-buffer' },       -- Optional
+      { 'hrsh7th/cmp-path' },         -- Optional
+      { 'saadparwaiz1/cmp_luasnip' }, -- Optional
+      { 'hrsh7th/cmp-nvim-lua' },     -- Optional
+
+      -- Snippets
+      { 'L3MON4D3/LuaSnip' },             -- Required
+      { 'rafamadriz/friendly-snippets' }, -- Optional
     }
   }
+
+  use { "onsails/lspkind.nvim" }
 
   use { "simrat39/rust-tools.nvim" }
 
